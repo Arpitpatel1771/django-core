@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='django-core',
+    name='core_django',
     packages=find_packages(include=['django-core']),
     url="https://github.com/Arpitpatel1771/django-core.git",
     install_requires = [
