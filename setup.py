@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="core_django",
-    packages=find_packages(include=["core_django", "auth"]),
+    packages=find_packages(),
     url="https://github.com/Arpitpatel1771/django-core.git",
     install_requires=[
         "asgiref==3.7.2",
