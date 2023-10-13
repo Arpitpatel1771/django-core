@@ -21,7 +21,6 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
-        app_label = "core_django"
 
     def save(self, *args, **kwargs) -> None:
         
