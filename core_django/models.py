@@ -7,6 +7,9 @@ class LogEntryCustom(LogEntry):
 
     object_data = models.JSONField(verbose_name="object_data", encoder=DjangoJSONEncoder)
 
+    class Meta:
+        app_label = 'core_django'
+
 
 class BaseModel(models.Model):
 
@@ -18,6 +21,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+        app_label = "core_django"
 
     def save(self, *args, **kwargs) -> None:
         
