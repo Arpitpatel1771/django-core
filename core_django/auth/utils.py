@@ -25,6 +25,9 @@ def authorize_user_for_views(token, groups):
     """
     Assuming the token is verified and valid
     """
+    if "*" in groups:
+        return True
+
     header, payload, signature = token.split(".")
 
     payload = json.loads(base64.b64decode(payload))
