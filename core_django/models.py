@@ -1,7 +1,9 @@
-from collections.abc import Iterable
-from django.db import models
-from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
+from django.contrib.admin.models import ADDITION, CHANGE, LogEntry
 from django.core.serializers.json import DjangoJSONEncoder
+from django.db import models
+from django_enumfield import enum
+
+from core_django.enums import Status
 
 
 class LogEntryCustom(LogEntry):
@@ -15,7 +17,7 @@ class LogEntryCustom(LogEntry):
 
 
 class BaseModel(models.Model):
-    status = models.BooleanField(default=True)
+    status = enum.EnumField(enum=Status, default=Status.ACTIVE)
     creation_date = models.DateTimeField(auto_now_add=True)
     creation_by = models.BigIntegerField(null=True)
     updation_date = models.DateTimeField(auto_now=True)
